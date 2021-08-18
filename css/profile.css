@@ -1,0 +1,141 @@
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    --button-hover-color: #d4bff9;
+    --background-color: #efe5fd;
+    --secondary-text-color: #b794f6;
+}
+
+#profile-info{
+    width: 95%;
+    max-width: 1100px;
+    background-color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    display: grid;
+    grid-template-columns: 180px auto;
+}
+
+#profile-info .profile-photo{
+    margin: 15px;
+    width: 180px;
+    height: 180px;
+    border-radius: 90px;
+    border: 1px solid var(--button-hover-color);
+    overflow: hidden;
+}
+
+#profile-info .profile-photo img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#profile-info .profile-description{
+    padding-top: 30px;
+    margin-left: 60px;
+    display: block;
+}
+@media screen and (max-width: 700px){
+    #profile-info .profile-description .profile-name-and-buttons{
+        display: block;
+        width: 100%; 
+    }
+    #profile-info .profile-description .profile-name-and-buttons .profile-buttons{
+        justify-content: center;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (min-width: 700px){
+    #profile-info .profile-description .profile-name-and-buttons{
+        display: flex;
+        width: 100%; 
+    }
+
+    #profile-info .profile-description .profile-name-and-buttons .profile-buttons{
+        justify-content: right;
+        margin-bottom: 30px
+    }
+}
+
+#profile-info .profile-description .profile-name-and-buttons .profile-name{
+    font-size: 30px;
+}
+
+#profile-info .profile-description .profile-name-and-buttons .profile-buttons{
+    width: 100%;
+    display: flex;
+}
+
+#profile-info .profile-description .profile-name-and-buttons .profile-buttons button{
+    width: 70px;
+    height: 50px;
+    margin-right: 4%;
+    border: 0;
+    background-color: #fff;
+    font-size: 25px;
+    border: 1px solid var(--background-color);
+    border-radius: 15px;
+}
+
+#profile-info .profile-description .profile-name-and-buttons .profile-buttons button:hover{
+    background-color: var(--background-color);
+}
+
+#profile-info .profile-description .about-me{
+    font-size: 17px;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+
+#filter-posts{
+    width: 90%;
+    padding:20px;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    display: flex;
+    justify-content: left;
+    overflow-x: scroll;
+}
+
+#filter-posts .tag{ 
+    padding:10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 15px;
+    height: 45px;
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-self: start;
+    align-self: center;
+    border: 1px solid var(--button-hover-color);
+    background-color: #fff;
+}
+
+#filter-posts .tag span{
+    margin-left: 5px;
+    font-size: 17px;
+}
+
+#posts{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 900px;
+}

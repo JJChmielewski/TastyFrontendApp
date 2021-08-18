@@ -1,0 +1,82 @@
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    --button-hover-color: #d4bff9;
+    --background-color: #efe5fd;
+    --secondary-text-color: #b794f6;
+}
+
+#main-section section{
+    margin: auto;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 900px;
+    border-radius: 10px;
+}
+
+#stories{
+    background-color: #fff;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 15px auto 15px;
+}
+
+#stories button{
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    border:0;
+}
+
+#stories button:hover{
+    border-radius: 10px;
+    border: 2px solid var(--secondary-text-color);
+}
+
+#stories .profiles{
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+#stories .profiles .story{
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    border: 1px solid var(--button-hover-color);
+    overflow: hidden;
+}
+
+#stories .profiles .story img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 1600px){
+    #main-section #recomended-profiles-section{
+        width: 0px;
+        border: 0;
+        position:absolute;
+        right:0;
+        top:0;
+    }
+}
+
+@media screen and (min-width: 1600px){
+    #main-section #recomended-profiles-section{
+        width: 300px;
+        position:absolute;
+        right:0;
+        top:0;
+    }
+}

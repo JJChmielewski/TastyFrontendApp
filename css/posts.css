@@ -1,0 +1,198 @@
+#posts{
+    overflow-wrap: break-word;
+    
+}
+
+.post{
+    background-color: #fff;
+    border-radius: 10px;
+
+    margin-bottom: 40px;
+}
+
+.post a{
+    color: black;
+    text-decoration:none;
+}
+
+.post .profile-info {
+    display: grid;
+    grid-template-columns: 40px auto;
+    gap: 20px;
+    align-items: center;
+    justify-content: left;
+    font-size: 17px;
+    font-weight: bold;
+    border-bottom: 1px solid var(--button-hover-color);
+
+}
+
+.post .profile-info .profile-photo{
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--button-hover-color);
+    margin-right: 30px;
+    overflow: hidden;
+}
+
+.post .profile-info .profile-photo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post img{
+    width: 98%;
+    display: block;
+    margin: auto;
+}
+
+.post video{
+    width: 98%;
+    display: block;
+    margin: auto;
+}
+
+.post .post-icons{
+    position: relative;
+    display: flex;
+    margin: auto;
+    width: 98%;
+}
+
+.post .post-icons .icon{
+    border: 0;
+    background-color: #fff;
+    padding:10px;
+    font-size: 40px;
+}
+
+.post .post-icons .icon:hover{
+    padding:10px;
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
+.post .post-icons .views{
+    font-size: 17px;
+    color: var(--secondary-text-color);
+    position: absolute;
+    right: 0;
+    top:20%;
+}
+
+.post .description{     
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.post .comments{
+    border-top: 1px solid var(--button-hover-color);
+    margin-top: 10px;
+    padding-bottom: 10px;
+}
+
+.post .comments img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post .comments .my-comment{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 45px auto 45px;
+    gap: 10px;
+}
+
+.post .comments .my-comment .profile-photo{
+    width: 45px;
+    height: 45px;
+    border-radius: 22.5px;
+    border: 1px solid var(--button-hover-color);
+    overflow: hidden;
+}
+
+.post .comments .my-comment textarea{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secondary-text-color);
+    max-height: 55px;
+    border: 1px solid var(--button-hover-color);
+    border-radius: 15px;
+    padding: 10px;
+    resize: none;
+}
+
+.post .comments .my-comment .send-icon{
+    align-self: center;
+    height: 45px;
+    border: 0;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+}
+
+.post .comments .my-comment .send-icon:hover{
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
+
+.post .comments .comment{
+    width: 98%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 40px auto 45px;
+    gap: 10px;
+}
+
+.post .comments .username{
+    margin-right: 10px;
+}
+
+
+.post .comments .profile-photo{
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid var(--button-hover-color);
+    overflow: hidden;
+}
+
+.post .comments .comment .content{
+    padding:10px;
+    border-radius: 15px;
+    border: 1px solid var(--button-hover-color);
+}
+
+.post .comments .comment .content p{
+    margin-top: 5px;
+    margin-bottom:0;
+}
+
+.post .comments .comment .content p button{
+    background-color: #fff;
+    border: 0;
+    margin-left: 0;
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+.post .comments .comment .content p button:hover{
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
