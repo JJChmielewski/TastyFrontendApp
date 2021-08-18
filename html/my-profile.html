@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/main-theme.css">
     <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="../css/posts.css">
+    <link rel="stylesheet" href="../css/my-profile.css">
     <script src="https://kit.fontawesome.com/4ec06cbc8b.js" crossorigin="anonymous"></script>   
     <title>Document</title>
 </head>
@@ -20,16 +21,17 @@
     <section id="main-section">
 
         <section id="profile-info">
-            <div class="profile-photo">
+            <button class="profile-photo edit-profile-photo">
                 <img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt="">
-            </div>
+                <div class="edit-icon icon"><span class="fas fa-pen"></span></div>
+            </button>
             <div class="profile-description">
                 <div class="profile-name-and-buttons">
                     <div class="profile-name">Username</div>
                     <div class="profile-buttons">
-                        <button class="icon follow"><span class="fas fa-user-plus"></span></button>
+                        <button class="icon add-post"><span class="fas fa-plus"></span></button>
                         <button class="icon search-profile"><span class="fas fa-search"></span></button>
-                        <button class="icon message"><span class="far fa-comment"></span></button>
+                        <button class="icon edit-profile"><span class="fas fa-pen"></span></button>
                     </div>
                 </div>
                 <div class="about-me">
@@ -81,7 +83,14 @@
             <button class="tag">
                 <input type="checkbox" name="" id=""><span class="fas fa-tag"></span><span>tag1</span>
             </button>
+            
+        </section>
 
+        <section id="add-new-post">
+            <button class="add-post">
+                <span class="fas fa-plus"></span>
+                <span class="add-post-text">Add new post</span>
+            </button>
         </section>
 
         <section id="posts">
