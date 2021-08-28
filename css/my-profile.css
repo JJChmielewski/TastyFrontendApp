@@ -63,3 +63,45 @@ body{
     margin-left: 5px;
     margin-right: 5px;
 }
+
+#add-post-popup{
+    position: fixed;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: ease-in-out 200ms;
+    width: 90%;
+    max-width: 1000px;
+    background-color: #fff;
+    border: 1px solid var(--background-color);
+    border-radius: 15px;
+    padding: 10px 15px;
+    z-index: 5;
+}
+
+#add-post-popup.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+#add-post-popup .popup-close-button{
+    float: right;
+    margin:0;
+    font-size: 1.5rem;
+    border:0;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#add-post-popup div input{
+    width: 90%;
+    margin: 0 5% 0 5%;
+    padding: 0;
+}
+
+#add-post-popup #post-image{
+    margin: 5% 0 2% 5%;
+}
+
+#add-post-popup img{
+    width: 100%;
+}
