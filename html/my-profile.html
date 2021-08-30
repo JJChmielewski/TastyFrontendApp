@@ -29,7 +29,7 @@
                 <div class="profile-name-and-buttons">
                     <div class="profile-name">Username</div>
                     <div class="profile-buttons">
-                        <button class="icon add-post"><span class="fas fa-plus"></span></button>
+                        <button data-popup-target="#add-post-popup" class="icon add-post"><span class="fas fa-plus"></span></button>
                         <button class="icon search-profile"><span class="fas fa-search"></span></button>
                         <button class="icon edit-profile"><span class="fas fa-pen"></span></button>
                     </div>
@@ -122,7 +122,7 @@
                         <div class="profile-photo">
                             <img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt="">
                         </div>
-                        <textarea name="my-comment" id="#" cols="30" rows="10" placeholder="Your comment..."></textarea>
+                        <div class="textarea-container"><textarea name="my-comment" id="#" placeholder="Your comment..."></textarea></div>
                         <button class="send-icon">
                             <span class="far fa-paper-plane"></span>
                         </button>
@@ -173,7 +173,7 @@
                         <div class="profile-photo">
                             <img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt="">
                         </div>
-                        <textarea name="my-comment" id="#" cols="30" rows="10" placeholder="Your comment..."></textarea>
+                        <div class="textarea-container"><textarea name="my-comment" id="#" placeholder="Your comment..."></textarea></div>
                         <button class="send-icon">
                             <span class="far fa-paper-plane"></span>
                         </button>
@@ -217,8 +217,9 @@
 
     <div id="add-post-popup" class="popup">
 
-        <button class="popup-close-button">&times;</button>
-        <h2>Description</h2>
+        <div class="header"><h1>Add new post</h3><button class="popup-close-button">&times;</button></div>
+        <div class="inputs">
+            <h2>Description</h2>
         <div class="description">
             <textarea name="" id="description-input"></textarea>
         </div>
@@ -226,7 +227,7 @@
         <h2>Ingredients</h2>
         <div class="ingredients">
             <ul class="ingredients-list">
-                    
+
             </ul>
             <input type="text" name="" id="ingredients-input">
         </div>
@@ -238,11 +239,15 @@
             </ul>
             <input type="text" name="" id="steps-input">
         </div>
+        </div>
 
-        <input type="file" name="" id="post-image">
-
-
-        <img src="" alt="">
+        <div class="images-and-post">
+            <div class="input">
+                <input type="file" name="" id="myImages" multiple>
+            </div>
+            <div class="selected-imgs"></div>
+            <button id="post">Post</button>
+        </div>
     </div>
 
     <div id="overlay"></div>

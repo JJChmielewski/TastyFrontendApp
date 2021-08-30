@@ -122,14 +122,21 @@
     overflow: hidden;
 }
 
-.post .comments .my-comment textarea{
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--secondary-text-color);
+.post .comments .my-comment .textarea-container{
     max-height: 55px;
     border: 1px solid var(--button-hover-color);
     border-radius: 15px;
     padding: 10px;
+}
+
+.post .comments .my-comment .textarea-container textarea{
+    width: 100%;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--secondary-text-color);
+    height: 100%;
+    border: none;
+    outline: none;
     resize: none;
 }
 

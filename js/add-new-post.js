@@ -1,14 +1,15 @@
 const descriptionInput = document.getElementById('description-input')
 const ingredientsInput = document.getElementById('ingredients-input')
 const stepsInput = document.getElementById('steps-input')
-let removeIngredientsButtons =[]
-let removeStepsButtons = []
+const postImagesInput = document.getElementById('myImages')
+const sendButton = document.getElementById('post')
 
 let description
 let ingredients = []
 let steps = []
 let ingredientsNumber =0
 let stepsNumber=0
+let images =[]
 
 
 descriptionInput.addEventListener('change', function(){
@@ -17,30 +18,101 @@ descriptionInput.addEventListener('change', function(){
 
 ingredientsInput.addEventListener('change', function(){
     const ingredientsList = document.querySelector('.ingredients-list')
-    ingredientsList.innerHTML += '<li id="ingredient'+ingredientsNumber+'" class="ingredient">'+ingredientsInput.value+'<button class="remove-item remove-ingredient">&times;</button></li>'
+    ingredientsList.innerHTML += '<li id="ingredient'+ingredientsNumber+'" class="ingredient"><div class="dot"><span class="fas fa-circle"></span><div class="line"></div></div>'+ingredientsInput.value+'<button class="remove-item remove-ingredient"><i class="fas fa-times"></i></button></li>'
     ingredientsNumber++
     ingredientsInput.value=null
-    removeIngredientsButtons = document.querySelectorAll('.remove-ingredient')
+    const removeIngredientsButtons = document.querySelectorAll('.remove-ingredient')
     removeIngredientsButtons.forEach(button => {
         button.addEventListener('click', function(){
             const id = button.closest('.ingredient').id
             const removedItem = document.getElementById(id)
-            removedItem.remove()
+            removedItem.classList.add('removing')
+            setTimeout(()=>{removedItem.remove()},150)
         })
     });
 })
 
 stepsInput.addEventListener('change', function(){
     const stepsList = document.querySelector('.steps-list')
-    stepsList.innerHTML += '<li id="step'+stepsNumber+'" class="step">'+stepsInput.value+'<button class="remove-item remove-step">&times;</button></li>'
+    stepsList.innerHTML += '<li id="step'+stepsNumber+'" class="step"><div class="dot"><span class="fas fa-circle"></span><div class="line"></div></div>'+stepsInput.value+'<button class="remove-item remove-step"><i class="fas fa-times"></i></button></li>'
     stepsNumber++
     stepsInput.value=null
-    removeStepsButtons = document.querySelectorAll('.remove-step')
+    const removeStepsButtons = document.querySelectorAll('.remove-step')
     removeStepsButtons.forEach(button => {
         button.addEventListener('click', function(){
             const id = button.closest('.step').id
-            const removedStep = document.getElementById(id)
-            removedStep.remove()
+            const removedItem = document.getElementById(id)
+            removedItem.classList.add('removing')
+            setTimeout(()=>{removedItem.remove()},150)
         })
     })
 })
+
+
+
+postImagesInput.addEventListener('change',()=>{
+    
+    document.querySelector('.selected-imgs').innerHTML=null
+    images = []
+
+    for(const file of postImagesInput.files){
+        images.push(file)
+    }   
+
+    let numberOfImgs = images.length
+    for(let i=0;i<numberOfImgs;i++){
+        document.querySelector('.selected-imgs').innerHTML+='<div id="image-'+i+'"><img src="'+URL.createObjectURL(images[i])+'"><button class="delete-image"><span>&times;</span></button></div>'
+    }
+    const removeImagesButtons = document.querySelectorAll('.delete-image')
+    removeImagesButtons.forEach(button=>{
+        button.addEventListener('click',()=>{
+            const id = button.closest('div').id
+            let arrayIndex = id.split('-')[1]
+            images[arrayIndex] = null
+            const removedImage = document.getElementById(id)
+            removedImage.classList.add('removing')
+            setTimeout(()=>{removedImage.remove()},200)
+        })
+    })
+    
+})
+
+sendButton.addEventListener('click',()=>{
+    const stepsList = document.querySelector('.steps-list').querySelectorAll('li')
+    const ingredientsList = document.querySelector('.ingredients-list').querySelectorAll('li')
+
+    stepsList.forEach(step => {
+        steps.push(step.textContent)
+    });
+    
+    ingredientsList.forEach(ingredient => {
+        ingredients.push(ingredient.textContent)
+    });
+
+    let tempImages =[]
+    images.forEach(image=>{
+        if(image != null){
+            tempImages.push(image)
+        }
+    })
+    images=tempImages
+
+    const formData = new FormData()
+
+    for(const file of images){
+        formData.append('images',file)
+    }
+
+    for(const [key,value] of formData){
+        console.log(`Key: ${key}`)
+    }
+
+    let pathsToImages = fetch("http://localhost:8080/api/post/chmielu", {
+        method: "post",
+        body: formData
+    })
+
+    console.log(pathsToImages)
+})
+
+
