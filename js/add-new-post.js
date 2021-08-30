@@ -97,9 +97,22 @@ sendButton.addEventListener('click',()=>{
     })
     images=tempImages
 
+    let pathsToImages = []
+
+    postImagesToServer("http://localhost:8080/api/post/chmielu", images).then(data =>{
+        data.forEach(tempData => {
+            pathsToImages.push(tempData)
+        });
+    })
+    console.log(pathsToImages)
+
+})
+
+
+let postImagesToServer = async function(url, imagesToSend){
     const formData = new FormData()
 
-    for(const file of images){
+    for(const file of imagesToSend){
         formData.append('images',file)
     }
 
@@ -107,12 +120,10 @@ sendButton.addEventListener('click',()=>{
         console.log(`Key: ${key}`)
     }
 
-    let pathsToImages = fetch("http://localhost:8080/api/post/chmielu", {
+    let pathsToImages = await fetch(url, {
         method: "post",
         body: formData
     })
 
-    console.log(pathsToImages)
-})
-
-
+    return pathsToImages.json()
+}
