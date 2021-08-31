@@ -1,20 +1,20 @@
 const descriptionInput = document.getElementById('description-input')
 const ingredientsInput = document.getElementById('ingredients-input')
 const stepsInput = document.getElementById('steps-input')
+const tagsInput = document.getElementById('tags-input')
 const postImagesInput = document.getElementById('myImages')
 const sendButton = document.getElementById('post')
 
 let description
 let ingredients = []
 let steps = []
+let tags= []
+let images =[]
 let ingredientsNumber =0
 let stepsNumber=0
-let images =[]
+let tagsNumber=0
 
-
-descriptionInput.addEventListener('change', function(){
-    description = descriptionInput.value
-})
+let username = "Chmielu"
 
 ingredientsInput.addEventListener('change', function(){
     const ingredientsList = document.querySelector('.ingredients-list')
@@ -41,6 +41,22 @@ stepsInput.addEventListener('change', function(){
     removeStepsButtons.forEach(button => {
         button.addEventListener('click', function(){
             const id = button.closest('.step').id
+            const removedItem = document.getElementById(id)
+            removedItem.classList.add('removing')
+            setTimeout(()=>{removedItem.remove()},150)
+        })
+    })
+})
+
+tagsInput.addEventListener('change', function(){
+    const tagsList = document.querySelector('.tags-list')
+    tagsList.innerHTML += '<li id="tag'+tagsNumber+'" class="tag"><div class="dot"><span class="fas fa-tag"></span></div></div>'+tagsInput.value+'<button class="remove-item remove-tag"><i class="fas fa-times"></i></button></li>'
+    tagsNumber++
+    tagsInput.value=null
+    const removeTagsButtons = document.querySelectorAll('.remove-tag')
+    removeTagsButtons.forEach(button => {
+        button.addEventListener('click', function(){
+            const id = button.closest('.tag').id
             const removedItem = document.getElementById(id)
             removedItem.classList.add('removing')
             setTimeout(()=>{removedItem.remove()},150)
@@ -80,6 +96,9 @@ postImagesInput.addEventListener('change',()=>{
 sendButton.addEventListener('click',()=>{
     const stepsList = document.querySelector('.steps-list').querySelectorAll('li')
     const ingredientsList = document.querySelector('.ingredients-list').querySelectorAll('li')
+    const tagsList = document.querySelector('.tags-list').querySelectorAll('li')
+
+    description = descriptionInput.value
 
     stepsList.forEach(step => {
         steps.push(step.textContent)
@@ -88,6 +107,10 @@ sendButton.addEventListener('click',()=>{
     ingredientsList.forEach(ingredient => {
         ingredients.push(ingredient.textContent)
     });
+
+    tagsList.forEach(tag=>{
+        tags.push(tag.textContent)
+    })
 
     let tempImages =[]
     images.forEach(image=>{
@@ -99,13 +122,53 @@ sendButton.addEventListener('click',()=>{
 
     let pathsToImages = []
 
-    postImagesToServer("http://localhost:8080/api/post/chmielu", images).then(data =>{
-        data.forEach(tempData => {
-            pathsToImages.push(tempData)
-        });
-    })
-    console.log(pathsToImages)
+    if(images.length > 0){
 
+        postImagesToServer("http://localhost:8080/api/postImages/"+username, images).then(data =>{
+            data.forEach(tempData => {
+                pathsToImages.push(tempData)
+                console.log(pathsToImages)
+            });
+        }).then(()=>{
+            let post = {
+                description: description,
+                ingredients: ingredients,
+                steps: steps,
+                tags: tags,
+                pathsToImages: pathsToImages
+            }
+        
+            console.log(post.description)
+            console.log(post.ingredients)
+            console.log(post.steps)
+            console.log(post.tags)
+            console.log(post.pathsToImages)
+        
+            postPostDataToServer("http://localhost:8080/api/postData/"+username, post)
+        }).then(()=>{
+            emptyPostPopup()
+        })
+    }
+    else{
+
+        let post = {
+            description: description,
+            ingredients: ingredients,
+            steps: steps,
+            tags: tags,
+            pathsToImages: pathsToImages
+        }
+    
+        console.log(post.description)
+        console.log(post.ingredients)
+        console.log(post.steps)
+        console.log(post.tags)
+        console.log(post.pathsToImages)
+    
+        postPostDataToServer("http://localhost:8080/api/postData/"+username, post).then(()=>{
+            emptyPostPopup()
+        })
+    }
 })
 
 
@@ -126,4 +189,40 @@ let postImagesToServer = async function(url, imagesToSend){
     })
 
     return pathsToImages.json()
+}
+
+let postPostDataToServer = function(url, post){
+    fetch(url,{
+        method: "post",
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(post)
+    })
+}
+
+let emptyPostPopup = function(){
+
+    descriptionInput.value = null
+    const stepsList = document.querySelector('.steps-list')
+    const ingredientsList = document.querySelector('.ingredients-list')
+    const tagsList = document.querySelector('.tags-list')
+
+    stepsList.innerHTML = null
+    ingredientsList.innerHTML = null
+    tagsList.innerHTML = null
+    document.querySelector('.selected-imgs').innerHTML = null
+
+    description = null
+    images = []
+    steps = []
+    ingredients = []
+    tags = []
+    stepsNumber=0
+    ingredientsNumber=0
+    tagsNumber = 0
+
+    document.getElementById('add-post-popup').classList.remove('active')
+    document.getElementById('overlay').classList.remove('active')
+
 }
