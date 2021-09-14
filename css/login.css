@@ -1,0 +1,118 @@
+body{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    overflow-x: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+    --button-hover-color: #d4bff9;
+    --background-color: #efe5fd;
+    --secondary-text-color: #b794f6;
+}
+
+#main-section{
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+
+#login-register{
+    height: 90%;
+    width: 90%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#login-register .welcome{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    padding: 15px 10px 10px 10px;
+    border-bottom: 1px solid var(--button-hover-color);
+}
+
+#login-register-buttons{
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 0 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--button-hover-color);
+}
+
+#login-register-buttons a{
+    text-decoration: none;
+    color: black;
+    margin: 0 5px 0 5px;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#login-register-buttons a:hover{
+    background-color: var(--background-color);
+    transform: scale(1.1);
+    transition: 0.1s;
+
+}
+
+#login-register-forms{
+    width: 100%;
+    height: 80%;
+    scroll-behavior: smooth;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.form{
+    width: 80%;
+    min-width: 100%;
+    border-radius: 0 0 15px 15px;
+    padding: 20px 0 0 0 ;
+}
+
+.form .field{
+    width: 100%;
+    display: block;
+}
+.form .field span{
+    margin: 0 auto 0 7%;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.form .field input{
+    margin: 5px 7% 0 7%;
+    width: 80%;
+    border-radius: 5px;
+    padding: 5px;   
+    border:1px solid var(--button-hover-color);
+    background-color: var(--background-color);
+    
+}
+
+.form .button{
+    margin-top: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form button{
+    border: 1px solid var(--button-hover-color);
+    background-color: #fff;
+    border-radius: 15px;
+    width: 80%;
+    font-size: 1.2rem;
+}
+
+.form button:hover{
+    background-color: var(--button-hover-color);
+    transform: scale(1.05);
+    transition: 0.10s;
+}
