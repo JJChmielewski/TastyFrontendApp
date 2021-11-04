@@ -14,8 +14,6 @@ let ingredientsNumber =0
 let stepsNumber=0
 let tagsNumber=0
 
-let username = "Chmielu"
-
 ingredientsInput.addEventListener('change', function(){
     const ingredientsList = document.querySelector('.ingredients-list')
     ingredientsList.innerHTML += '<li id="ingredient'+ingredientsNumber+'" class="ingredient"><div class="dot"><span class="fas fa-circle"></span><div class="line"></div></div>'+ingredientsInput.value+'<button class="remove-item remove-ingredient"><i class="fas fa-times"></i></button></li>'
@@ -120,86 +118,30 @@ sendButton.addEventListener('click',()=>{
     })
     images=tempImages
 
-    let pathsToImages = []
-
-    if(images.length > 0){
-
-        postImagesToServer("http://localhost:8080/api/postImages/"+username, images).then(data =>{
-            data.forEach(tempData => {
-                pathsToImages.push(tempData)
-                console.log(pathsToImages)
-            });
-        }).then(()=>{
-            let post = {
-                description: description,
-                ingredients: ingredients,
-                steps: steps,
-                tags: tags,
-                pathsToImages: pathsToImages
-            }
-        
-            console.log(post.description)
-            console.log(post.ingredients)
-            console.log(post.steps)
-            console.log(post.tags)
-            console.log(post.pathsToImages)
-        
-            postPostDataToServer("http://localhost:8080/api/postData/"+username, post)
-        }).then(()=>{
-            emptyPostPopup()
-        })
-    }
-    else{
-
-        let post = {
-            description: description,
-            ingredients: ingredients,
-            steps: steps,
-            tags: tags,
-            pathsToImages: pathsToImages
-        }
-    
-        console.log(post.description)
-        console.log(post.ingredients)
-        console.log(post.steps)
-        console.log(post.tags)
-        console.log(post.pathsToImages)
-    
-        postPostDataToServer("http://localhost:8080/api/postData/"+username, post).then(()=>{
-            emptyPostPopup()
-        })
-    }
-})
-
-
-let postImagesToServer = async function(url, imagesToSend){
     const formData = new FormData()
 
-    for(const file of imagesToSend){
-        formData.append('images',file)
+    if(images.length != 0){
+        for(const file of images){
+            formData.append('images',file)
+        }
     }
 
-    for(const [key,value] of formData){
-        console.log(`Key: ${key}`)
-    }
+    formData.append("postData",description)
+    formData.append("postData",ingredients)
+    formData.append("postData",steps)
+    formData.append("postData",tags)
 
-    let pathsToImages = await fetch(url, {
+    formData.append("postAuthor", "Chmielu")
+
+    fetch("http://localhost:8080/api/post", {
         method: "post",
         body: formData
+    }).then(()=>{
+        console.log(post)
+        emptyPostPopup()
     })
 
-    return pathsToImages.json()
-}
-
-let postPostDataToServer = function(url, post){
-    fetch(url,{
-        method: "post",
-        headers:{
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(post)
-    })
-}
+})
 
 let emptyPostPopup = function(){
 

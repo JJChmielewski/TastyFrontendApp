@@ -13,14 +13,16 @@
 .post a{
     color: black;
     text-decoration:none;
+    display: flex;
+    align-items: center;
 }
 
 .post .profile-info {
     display: grid;
-    grid-template-columns: 40px auto;
+    grid-template-columns: auto 40px;
     gap: 20px;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
     font-size: 17px;
     font-weight: bold;
     border-bottom: 1px solid var(--button-hover-color);
@@ -43,10 +45,25 @@
     object-fit: cover;
 }
 
+.post .profile-info button{
+    border-radius: 10px;
+    border: none;
+    background-color: #fff;
+    font-size: 1.2rem;
+
+}
+
+.post .profile-info button:hover{
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
 .post img{
-    width: 98%;
+    scroll-snap-align: start ;
+    min-width: 100%;
+    width: 100%;
     display: block;
-    margin: auto;
+    
 }
 
 .post video{
@@ -55,14 +72,56 @@
     margin: auto;
 }
 
-.post .post-icons{
+.post .images{
     position: relative;
     display: flex;
+}
+
+.post .img-container{
+    margin: auto;
+    max-width: 97%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+.post .images button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:45%;
+    height: 30px;
+    min-width: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 0;
+    background-color: #fff;
+}
+
+.post .images button.disabled{
+    display: none;
+}
+
+.post .images .left{
+    left: 2%;
+}
+
+.post .images .right{
+    right: 2%;
+}
+
+.post .post-icons{
+    position: relative;
+    display: grid;
+    grid-template-columns: 60px 60px auto 40px 80px;
     margin: auto;
     width: 98%;
 }
 
 .post .post-icons .icon{
+    transition: 0.25s;
     border: 0;
     background-color: #fff;
     padding:10px;
@@ -73,6 +132,12 @@
     padding:10px;
     border-radius: 10px;
     background-color: var(--background-color);
+}
+
+.post .post-icons .liked{
+    color: red;
+    font-size: 43px;
+    transition: 0.25s;
 }
 
 .post .post-icons .views{
@@ -203,3 +268,134 @@
     border-radius: 10px;
     background-color: var(--background-color);
 }
+
+#recipe-popup{
+    font-size: 1.3rem;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    transition: ease-in-out 200ms;
+    width: 90%;
+    max-width: 800px;
+    max-height: 100%;
+    overflow-y: scroll;
+    background-color: #fff;
+    border: 1px solid var(--background-color);
+    border-radius: 15px;
+    z-index: 5;
+}
+
+#recipe-popup.active{
+    transform: translate(-50%,-50%) scale(1);
+}
+
+#recipe-popup .header{
+    display: grid;
+    grid-template-columns: auto 20px;
+    padding:0 0 0 30px;
+    margin:0;
+    border-bottom: 1px solid var(--button-hover-color);
+}
+
+#recipe-popup .images{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+#recipe-popup .images img{
+    scroll-snap-align: start;
+    max-width: 98%;
+    min-width: 98%;
+}
+
+#recipe-popup .img-container{
+    margin: auto;
+    max-width: 97%;
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+}
+
+#recipe-popup .images button{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top:45%;
+    height: 30px;
+    min-width: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 0;
+    background-color: #fff;
+}
+
+#recipe-popup .images button.disabled{
+    display: none;
+}
+
+#recipe-popup .images .left{
+    left: 2%;
+}
+
+#recipe-popup .images .right{
+    right: 2%;
+}
+
+#recipe-popup .popup-body{
+    padding: 10px 20px 10px 20px;
+    max-height: 500px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#recipe-popup .popup-close-button{
+    margin-right: 10px;
+    font-size: 3rem;
+    font-weight: bold;
+    border:0;
+    background-color: #fff;
+    cursor: pointer;
+    justify-self: right;
+    align-self: start;
+    border-radius: 15px;
+}
+#recipe-popup ul{
+    list-style-type: none;
+}
+
+#recipe-popup ul li{
+    display: flex;
+    transform: scale(1);
+    transition: 250ms;
+}
+
+#recipe-popup ul li.removing{
+    transform: scale(0);
+}
+
+#recipe-popup ul li .dot{
+    margin-right: 15px;
+    color: var(--secondary-text-color);
+    font-size: 13px;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+#recipe-popup ul li .dot .line{
+    border: 1px solid var(--secondary-text-color);
+    height: 20px;
+    position: absolute;
+    top:-10px;
+}
+
+#recipe-popup ul li:first-child .dot .line{
+    height: 0;
+    width: 0;
+    border:0;
+} 
