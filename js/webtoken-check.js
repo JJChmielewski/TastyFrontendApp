@@ -1,4 +1,4 @@
-let serverUrl = "http://localhost:8080/api/webToken"
+let serverUrl = "http://localhost:8080/api"
 
 window.onload = function(){
 
@@ -17,7 +17,7 @@ let checkWebToken = function(){
             window.location.replace("/html/login.html")
         }
 
-        fetch(serverUrl, {
+        fetch(serverUrl+"/webToken", {
             method: "post",
             headers:{
                 'Content-Type':'application/json'

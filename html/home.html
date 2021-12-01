@@ -14,73 +14,14 @@
     <nav id="topbar">
         <div>Lorem, ipsum.</div>
         <div>Lorem, ipsum.</div>
-        <div class="profile"><a href="#"><img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt=""></a></div>
+        <div class="profile"><a href="/html/my-profile.html"><img src="" alt=""></a></div>
     </nav>
     
 
     <section id="main-section">
 
         <section id="posts">
-            <div class="post">
-                <div class="profile-info">
-                    <a href="#">
-                        <div class="profile-photo">
-                            <img src="http://localhost:8080/image/test?pathToImage=/Users/Chmielu/TastyFileSystem/Chmielu/1634830283168/220764.jpg" alt="">
-                        </div>
-                        <span>Username</span>
-                    </a>
-                    <button class="icon"><span class="fas fa-ellipsis-h"></span></button>
-                </div>
-               
-
-                <div class="description">
-                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia totam eveniet, provident expedita laboriosam ad at molestiae repudiandae, quia nisi aliquam necessitatibus, magnam id soluta quibusdam fuga aspernatur nesciunt esse.</span>
-                </div>
-                <div class="images">
-                    <button class="left"><i class="fas fa-chevron-left"></i></button>
-                    <div class="img-container">
-                    
-                        <img class="post-image" src="http://localhost:8080/api/image/?pathToImage=/Users/Chmielu/TastyFileSystem/Chmielu/1634830283168/220764.jpg" alt="">
-                        <img class="post-image" src="http://localhost:8080/api/image/?pathToImage=/Users/Chmielu/TastyFileSystem/Chmielu/1634830283168/220764.jpg" alt="">
-                    
-                    </div>
-                    <button class="right"><i class="fas fa-chevron-right"></i></button>
-                </div>
-                
-
-                <div class="post-icons">
-                    <button class="icon"><span class="far fa-heart"></span></button>
-                    <button class="icon"><span class="far fa-comments"></span></button>
-                    <button class="icon recipe"><span class="fas fa-bars"></span></button>
-                    <span class="views">69 likes</span>
-                </div>
-
-                <div class="comments">
-
-                    <div class="my-comment">
-                        <div class="profile-photo">
-                            <img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt="">
-                        </div>
-                        <div class="textarea-container"><textarea name="my-comment" id="#" placeholder="Your comment..."></textarea></div>
-                        <button class="send-icon">
-                            <span class="far fa-paper-plane"></span>
-                        </button>
-                    </div>
-
-                    <div class="comment">
-                        <div class="profile-photo">
-                            <img src="https://cdn.pixabay.com/photo/2021/06/27/14/32/raspberry-6368999_960_720.png" alt="">
-                        </div>
-                        <div class="content">
-                            <span><a href="#"><b class="username">Username</b></a>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias debitis error veniam consectetur corrupti? Consectetur nesciunt dolores vero ipsam velit fugiat temporibus corrupti deleniti doloribus.</span>
-                            <p>2 <button class="like">Likes</button> <button class="reply"><b>Reply</b></button></p>
-                        </div>
-                    </div>
-
-                
-                </div>
-                
-            </div>  
+              
         </section>
 
     </section>
@@ -113,15 +54,20 @@
     <div id="overlay"></div>
 
     <nav id="navbar">
-        <button class="icon"><span class="fas fa-home"></span></button>
-        <button class="icon"><span class="fas fa-search"></span></button> 
-        <button class="icon"><span class="far fa-comment"></span></button>
+        <a href="#posts" class="icon"><span class="fas fa-home"></span></a>
+        <a href="#" class="icon"><span class="fas fa-search"></span></a> 
+        <a href="#" class="icon"><span class="far fa-comment"></span></a>
     </nav>
+
 
     <script src="../js/webtoken-check.js"></script>
     <script src="../js/popup.js"></script>
     <script src="../js/post.js"></script>
     
+    <script>
+        let myProfileButtonImg = document.querySelector("#topbar .profile img");
+        myProfileButtonImg.src = "http://localhost:8080/api/profilePhoto?username="+JSON.parse(window.localStorage.getItem("profile")).id;
+    </script>
 
 </body>
 </html>

@@ -131,7 +131,9 @@ sendButton.addEventListener('click',()=>{
     formData.append("postData",steps)
     formData.append("postData",tags)
 
-    formData.append("postAuthor", "Chmielu")
+    let author = JSON.parse(window.localStorage.getItem("profile")).id;
+
+    formData.append("postAuthor", author)
 
     fetch("http://localhost:8080/api/post", {
         method: "post",

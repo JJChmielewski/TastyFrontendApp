@@ -49,7 +49,7 @@ loginButton.addEventListener("click",()=>{
 
             console.log(data)
 
-            if(data.id == null || data.password == null){
+            if(data.id == null){
                 throw "Bad username or password";
             }
 
