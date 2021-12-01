@@ -1,4 +1,4 @@
-let serverUrl = "http://localhost:8080/api"
+let serverUrl = "http://192.168.0.136:8080/api"
 
 window.onload = function(){
 
