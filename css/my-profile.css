@@ -9,15 +9,23 @@ body{
     --secondary-text-color: #b794f6;
 }
 
-#profile-info .profile-photo{
+#profile-section .profile-photo{
     padding: 0;
     position: relative;
+
 }
 
-#profile-info .profile-photo .edit-icon{
+#profile-section .edit-profile-photo{
+    border: none;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+}
+
+#profile-section .profile-photo .edit-icon{
     position: absolute;
-    right: 20px;
-    bottom: 20px;
+    right: 14%;
+    bottom: 14%;
     width: 30px;
     height: 30px;
     border-radius: 30px;
@@ -27,7 +35,7 @@ body{
 }
 
 
-#profile-info .profile-photo:hover{
+#profile-section .profile-photo:hover{
     opacity: 85%;
 }
 

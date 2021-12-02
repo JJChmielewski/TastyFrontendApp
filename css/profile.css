@@ -9,7 +9,7 @@ body{
     --secondary-text-color: #b794f6;
 }
 
-#profile-info{
+#profile-section{
     width: 95%;
     max-width: 750px;
     background-color: #fff;
@@ -18,64 +18,96 @@ body{
     margin-top: 30px;
     border-radius: 15px;
     display: grid;
-    grid-template-columns: 180px auto;
+    grid-template-columns: 150px auto;  
+    padding: 10px;
+    
 }
 
-#profile-info .profile-photo{
-    margin: 15px;
+#profile-section .profile-photo{
     width: 150px;
     height: 150px;
-    border-radius: 90px;
+    border-radius: 50%;
     border: 1px solid var(--button-hover-color);
     overflow: hidden;
 }
 
-#profile-info .profile-photo img{
+#profile-section .profile-photo img{
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
 
-#profile-info .profile-description{
-    padding-top: 30px;
-    margin-left: 60px;
+#profile-section .profile-description{
+    padding-top: 10px;
+    margin-left: 10px;
     display: block;
 }
-@media screen and (max-width: 650px){
-    #profile-info .profile-description .profile-name-and-buttons{
+@media screen and (max-width: 400px){
+
+    #profile-section {
         display: block;
-        width: 100%; 
     }
-    #profile-info .profile-description .profile-name-and-buttons .profile-buttons{
-        justify-content: center;
+    #profile-section .profile-photo{
+        margin: auto;
+        width: 200px;
+        height: 200px;
+    }
+
+    #profile-section .profile-description{
+        padding-top: 1  0px;
+        margin-left: 0;
+        display: block;
+    }
+
+    #profile-section .profile-description .profile-name-and-buttons{
+        display: block;
+    }
+
+    #profile-section .profile-description .profile-name-and-buttons .profile-name{
+        margin: auto;    
         margin-top: 15px;
         margin-bottom: 20px;
         max-width: 35vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    #profile-section .profile-description .profile-name-and-buttons .profile-buttons{
+        margin: auto;   
+        margin-top: 15px;
+        margin-bottom: 20px;
+        max-width: 35vw;
+        justify-content: center;
     }
 }
 
-@media screen and (min-width: 650px){
-    #profile-info .profile-description .profile-name-and-buttons{
+@media screen and (min-width: 401px){
+    #profile-section .profile-description .profile-name-and-buttons{
         display: flex;
         width: 100%; 
     }
 
-    #profile-info .profile-description .profile-name-and-buttons .profile-buttons{
+    #profile-section .profile-description.profile-name-and-buttons.profile-name{
+        justify-self: left;
+    }
+
+    #profile-section .profile-description .profile-name-and-buttons .profile-buttons{
         justify-content: right;
         margin-bottom: 30px
     }
 }
 
-#profile-info .profile-description .profile-name-and-buttons .profile-name{
+
+#profile-section .profile-description .profile-name-and-buttons .profile-name{
     font-size: 25px;
 }
 
-#profile-info .profile-description .profile-name-and-buttons .profile-buttons{
+#profile-section .profile-description .profile-name-and-buttons .profile-buttons{
     width: 100%;
     display: flex;
 }
 
-#profile-info .profile-description .profile-name-and-buttons .profile-buttons button{
+#profile-section .profile-description .profile-name-and-buttons .profile-buttons button{
     width: 70px;
     height: 50px;
     margin-right: 4%;
@@ -86,11 +118,11 @@ body{
     border-radius: 15px;
 }
 
-#profile-info .profile-description .profile-name-and-buttons .profile-buttons button:hover{
+#profile-section .profile-description .profile-name-and-buttons .profile-buttons button:hover{
     background-color: var(--background-color);
 }
 
-#profile-info .profile-description .about-me{
+#profile-section .profile-description .about-me{
     font-size: 17px;
     padding-top: 15px;
     padding-right: 15px;

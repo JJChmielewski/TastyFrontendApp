@@ -232,7 +232,7 @@ let generatePostHTML = function(post){
 
     postHTML+='<button class="icon comment"><span class="far fa-comments"></span></button>'+
     '<button data-popup-target="#recipe-popup" class="icon recipe"><span class="fas fa-bars"></span></button>'+
-    '<span class="views">69 likes</span>'+
+    '<span class="views"></span>'+
     '</div>'+
 
     '<div class="comments">'+

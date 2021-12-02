@@ -175,14 +175,14 @@
     margin-right: auto;
     margin-top: 20px;
     display: grid;
-    grid-template-columns: 45px auto 45px;
+    grid-template-columns: 35px auto 35px;
     gap: 10px;
 }
 
 .post .comments .my-comment .profile-photo{
-    width: 45px;
-    height: 45px;
-    border-radius: 22.5px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
     border: 1px solid var(--button-hover-color);
     overflow: hidden;
 }
