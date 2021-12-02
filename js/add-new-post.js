@@ -92,6 +92,7 @@ postImagesInput.addEventListener('change',()=>{
 })
 
 sendButton.addEventListener('click',()=>{
+
     const stepsList = document.querySelector('.steps-list').querySelectorAll('li')
     const ingredientsList = document.querySelector('.ingredients-list').querySelectorAll('li')
     const tagsList = document.querySelector('.tags-list').querySelectorAll('li')
@@ -135,7 +136,7 @@ sendButton.addEventListener('click',()=>{
 
     formData.append("postAuthor", author)
 
-    fetch("http://localhost:8080/api/post", {
+    fetch(serverUrl+"/post", {
         method: "post",
         body: formData
     }).then(()=>{

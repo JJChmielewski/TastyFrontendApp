@@ -1,5 +1,6 @@
 let profileName;
-
+let editDescriptionButton;
+let editProfilePhotoButton;
 
 window.addEventListener("load",()=>{
 
@@ -12,7 +13,12 @@ window.addEventListener("load",()=>{
     myProfileButtonImg.src = serverUrl+"/profilePhoto?username="+JSON.parse(window.localStorage.getItem("profile")).id;
 
     document.getElementById("profile-section").innerHTML=generateProfileHTML(profile);
+
+    editProfilePhoto = document.querySelector(".edit-photo");
+    editDescriptionButton = document.querySelector(".edit-description");
 })
+
+
 
 
 let generateProfileHTML = function(profile){
@@ -22,14 +28,14 @@ let generateProfileHTML = function(profile){
     let profileHTML='<div class="profile-photo">'+
     '<button class="edit-profile-photo">'+
                 '<img src="'+serverUrl+'/profilePhoto?username='+profile.id+'" alt="">'+
-                '<div class="edit-icon icon"><span class="fas fa-pen"></span></div>'+
+                '<div class="edit-photo icon"><span class="fas fa-pen"></span></div>'+
             '</button>'+
             '</div>'+
     '<div class="profile-description">'+
         '<div class="profile-name-and-buttons">'+
             '<div class="profile-name">'+profile.id+'</div>'+
             '<div class="profile-buttons">'+
-            '<button class="icon edit-profile"><span class="fas fa-pen"></span></button>'+
+            '<button class="icon edit-description"><span class="fas fa-pen"></span></button>'+
             '</div>'+
         '</div>'+
         '<div class="about-me">';
