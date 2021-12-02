@@ -9,7 +9,7 @@ window.addEventListener("load",()=>{
     console.log(profileName);
 
     let myProfileButtonImg = document.querySelector("#topbar .profile img");
-    myProfileButtonImg.src = "http://localhost:8080/api/profilePhoto?username="+JSON.parse(window.localStorage.getItem("profile")).id;
+    myProfileButtonImg.src = serverUrl+"/profilePhoto?username="+JSON.parse(window.localStorage.getItem("profile")).id;
 
     document.getElementById("profile-section").innerHTML=generateProfileHTML(profile);
 })

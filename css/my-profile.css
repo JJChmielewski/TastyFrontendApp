@@ -73,6 +73,7 @@ body{
 }
 
 #add-post-popup{
+    max-height: 100vh;
     font-size: 1.3rem;
     position: absolute;
     top:50%;
@@ -92,6 +93,7 @@ body{
 }
 
 #add-post-popup .header{
+    max-height: 80px;
     display: grid;
     grid-template-columns: auto 20px;
     padding:0 0 0 30px;
@@ -101,9 +103,9 @@ body{
 
 #add-post-popup .inputs{
     padding: 10px 20px 10px 20px;
-    max-height: 500px;
     overflow-y: scroll;
     scrollbar-width: none;
+    max-height: calc(100vh - 80px - 90px - 120px);
 }
 
 #add-post-popup .popup-close-button{
@@ -198,6 +200,7 @@ body{
 }
 
 #add-post-popup .images-and-post{
+    max-height: 2   0vh;
     display: grid;
     grid-template-columns: 10% auto 15%;
     padding:20px;
@@ -215,7 +218,9 @@ body{
     align-items: center;
     margin-left: 30px;
     padding:5px;
-    overflow:hidden;
+    overflow-x:scroll;
+    overflow-y: hidden;
+    scrollbar-width: thin;
 }
 
 #add-post-popup .images-and-post .selected-imgs div{
@@ -224,9 +229,9 @@ body{
     align-items: center;
     position: relative;
     margin: 0 5px 0 5px;
-    width: 90px;
-    min-width: 90px;
-    height: 90px;
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
     transition: ease-in-out 200ms;
 }
 
@@ -256,4 +261,8 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#add-post-popup .images-and-post .post{
+
 }
