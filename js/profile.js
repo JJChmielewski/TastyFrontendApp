@@ -9,7 +9,7 @@ window.addEventListener("load",()=>{
     console.log(profileName);
     
     if(profileName == JSON.parse(window.localStorage.getItem("profile")).id){
-        window.location.replace("/TastyFrontendApp/html/my-profile.html");
+        window.location.href = "/TastyFrontendApp/html/my-profile.html"
     }
 
     let myProfileButtonImg = document.querySelector("#topbar .profile img");
