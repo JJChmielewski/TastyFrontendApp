@@ -1,4 +1,4 @@
-let serverUrl = "http://192.168.0.136:8080/api"
+let serverUrl = "https://tasty-server.herokuapp.com/api"
 
 window.onload = function(){
 

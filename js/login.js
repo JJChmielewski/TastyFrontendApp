@@ -1,7 +1,7 @@
 const registerButton = document.getElementById("register-button");
 const loginButton = document.getElementById("login-button");
 
-let serverUrl = "http://192.168.0.136:8080/api"
+let serverUrl = "https://tasty-server.herokuapp.com/api"
 
 registerButton.addEventListener("click",()=>{
 
