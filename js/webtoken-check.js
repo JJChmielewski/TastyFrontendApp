@@ -14,7 +14,7 @@ let checkWebToken = function(){
         if(webToken == null){
             window.localStorage.removeItem("profile")
             window.localStorage.removeItem("webToken")
-            window.location.replace("/html/login.html")
+            window.location.replace("index.html")
         }
 
         fetch(serverUrl+"/webToken", {
