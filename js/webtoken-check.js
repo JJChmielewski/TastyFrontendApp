@@ -14,7 +14,7 @@ let checkWebToken = function(){
         if(webToken == null){
             window.localStorage.removeItem("profile")
             window.localStorage.removeItem("webToken")
-            window.location.replace("/TastyFrontendApp/index.html")
+            window.location.href = "../index.html";
         }
 
         fetch(serverUrl+"/webToken", {
@@ -28,7 +28,7 @@ let checkWebToken = function(){
             if(data.username == null || data.token == null || data.expiryDate==null){
                 window.localStorage.removeItem("profile")
                 window.localStorage.removeItem("webToken")
-                window.location.replace("/TastyFrontendApp/index.html")
+                window.location.href = "../index.html"
             }
             else{
                 window.localStorage.setItem("webToken", JSON.stringify(data))
