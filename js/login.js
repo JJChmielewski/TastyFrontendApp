@@ -67,7 +67,7 @@ loginButton.addEventListener("click",()=>{
         .then(data =>{
             window.localStorage.setItem('webToken',JSON.stringify(data));
             console.log(JSON.parse(window.localStorage.getItem('webToken')));
-            window.location.href= "/html/home.html";
+            window.location.href= "/TastyFrontendApp/html/home.html";
         })  
     })
 
