@@ -174,7 +174,7 @@ let generatePostHTML = function(post){
     
     let postHTML = '<div class="post" id="'+post.id+'">'+
     '<div class="profile-info">'+
-        '<a href="/TastyFrontendApp/profile.html?username='+post.author+'">'+
+        '<a href="/TastyFrontendApp/html/profile.html?username='+post.author+'">'+
             '<div class="profile-photo">'+
                 '<img src="'+serverUrl+'/profilePhoto?username='+post.author+'" alt="">'+
             '</div>'+
